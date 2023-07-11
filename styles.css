@@ -1,1 +1,24 @@
 /*  your css code here. If applicable */
+function secondHighest(arr) {
+  if (arr.length <= 1) {
+    return -Infinity;
+  }
+
+  let max = -Infinity;
+  let secondMax = -Infinity;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > max) {
+      secondMax = max;
+      max = arr[i];
+    } else if (arr[i] < max && arr[i] > secondMax) {
+      secondMax = arr[i];
+    }
+  }
+
+  if (secondMax === -Infinity) {
+    return -Infinity;
+  }
+
+  return secondMax;
+}
